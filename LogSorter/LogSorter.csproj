@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{45D363F4-9EA5-4E48-9F3C-CC322035C9CC}</ProjectGuid>
+    <ProjectGuid>{2DBEBB5F-4D70-4302-AA0D-CF9D0BB5E568}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>LogSorter</RootNamespace>
     <AssemblyName>LogSorter</AssemblyName>
@@ -33,19 +33,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Authed" />
-    <Reference Include="MetroFramework" />
+    <Reference Include="MetroFramework">
+      <HintPath>E:\2.C#\Library\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>E:\2.C#\Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="xNet" />
+    <Reference Include="xNet">
+      <HintPath>E:\2.C#\Library\xNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="First.cs" />
+    <Compile Include="First.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="First.Designer.cs">
+      <DependentUpon>First.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,7 +66,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Sorter.cs" />
+    <Compile Include="Sorter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sorter.Designer.cs">
+      <DependentUpon>Sorter.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="First.resources" />

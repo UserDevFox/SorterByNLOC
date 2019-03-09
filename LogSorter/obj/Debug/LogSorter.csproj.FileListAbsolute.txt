@@ -1,0 +1,11 @@
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\LogSorter.exe
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\LogSorter.pdb
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\Authed.dll
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\MetroFramework.dll
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cr4shed\Desktop\Cr\LogSorter\bin\Debug\xNet.dll
+C:\Users\cr4shed\Desktop\Cr\LogSorter\obj\Debug\LogSorter.csprojAssemblyReference.cache
+C:\Users\cr4shed\Desktop\Cr\LogSorter\obj\Debug\LogSorter.csproj.CoreCompileInputs.cache
+C:\Users\cr4shed\Desktop\Cr\LogSorter\obj\Debug\LogSorter.csproj.CopyComplete
+C:\Users\cr4shed\Desktop\Cr\LogSorter\obj\Debug\LogSorter.exe
+C:\Users\cr4shed\Desktop\Cr\LogSorter\obj\Debug\LogSorter.pdb

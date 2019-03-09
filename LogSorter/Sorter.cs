@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using xNet;
@@ -12,7 +13,7 @@ using xNet;
 namespace LogSorter
 {
 	// Token: 0x02000004 RID: 4
-	public class Sorter : MetroForm
+	public partial class Sorter : MetroForm
 	{
 		// Token: 0x06000013 RID: 19 RVA: 0x0000294E File Offset: 0x00000B4E
 		public Sorter()
@@ -149,10 +150,13 @@ namespace LogSorter
 			{
 				this.DirectoryFromZip(Directory.GetFiles(this.path));
 			}
-			string[] directories = Directory.GetDirectories(this.path);
+		    
+            string[] directories = Directory.GetDirectories(this.path);
+            
 			foreach (string text in directories)
 			{
-				Log logFromDirectory = this.GetLogFromDirectory(text);
+			    string dir = Directory.GetParent(text).FullName;
+                Log logFromDirectory = this.GetLogFromDirectory(dir);
 				bool flag = logFromDirectory.CookiePath != "empty";
 				if (flag)
 				{
@@ -197,12 +201,13 @@ namespace LogSorter
 							HttpRequest httpRequest = new HttpRequest();
 							string str = Sorter.Pars("https://check-host.net/ip-info?host=" + logFromDirectory.Ip, "<td>Часовой пояс</td><td>", "</td>", 0, null);
 							text2 = text2 + str + "  " + logFromDirectory.Ip;
-						}
-						Directory.Move(text, this.currentpath + "\\Goods\\" + text2);
-					}
+                        }
+					    Directory.CreateDirectory(this.currentpath + "\\Goods\\");
+					    Directory.Move(text, this.currentpath + "\\Goods\\" + text2);
+                    }
 				}
 			}
-			Process.Start(this.currentpath + "\\Goods\\");
+			//Process.Start(this.currentpath + "\\Goods\\");
 		}
 
 		// Token: 0x0600001C RID: 28 RVA: 0x00002F75 File Offset: 0x00001175
@@ -252,179 +257,6 @@ namespace LogSorter
 		{
 		}
 
-		// Token: 0x06000021 RID: 33 RVA: 0x0000301C File Offset: 0x0000121C
-		protected override void Dispose(bool disposing)
-		{
-			bool flag = disposing && this.components != null;
-			if (flag)
-			{
-				this.components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
-
-		// Token: 0x06000022 RID: 34 RVA: 0x00003054 File Offset: 0x00001254
-		private void InitializeComponent()
-		{
-			this.metroListView1 = new MetroListView();
-			this.metroButton1 = new MetroButton();
-			this.linksCount = new MetroLabel();
-			this.metroTextBox1 = new MetroTextBox();
-			this.metroButton2 = new MetroButton();
-			this.metroButton3 = new MetroButton();
-			this.spath = new MetroLabel();
-			this.metroButton4 = new MetroButton();
-			this.metroCheckBox1 = new MetroCheckBox();
-			this.metroToggle1 = new MetroToggle();
-			this.metroLabel1 = new MetroLabel();
-			this.metroCheckBox2 = new MetroCheckBox();
-			base.SuspendLayout();
-			this.metroListView1.Font = new Font("Segoe UI", 12f);
-			this.metroListView1.FullRowSelect = true;
-			this.metroListView1.Location = new Point(23, 85);
-			this.metroListView1.Name = "metroListView1";
-			this.metroListView1.OwnerDraw = true;
-			this.metroListView1.Scrollable = false;
-			this.metroListView1.Size = new Size(333, 160);
-			this.metroListView1.TabIndex = 0;
-			this.metroListView1.Theme = 1;
-			this.metroListView1.UseCompatibleStateImageBehavior = false;
-			this.metroListView1.UseSelectable = true;
-			this.metroListView1.View = View.List;
-			this.metroButton1.Location = new Point(506, 176);
-			this.metroButton1.Name = "metroButton1";
-			this.metroButton1.Size = new Size(75, 23);
-			this.metroButton1.TabIndex = 1;
-			this.metroButton1.Text = "add";
-			this.metroButton1.Theme = 1;
-			this.metroButton1.UseSelectable = true;
-			this.metroButton1.Click += this.metroButton1_Click;
-			this.linksCount.AutoSize = true;
-			this.linksCount.FontSize = 2;
-			this.linksCount.Location = new Point(21, 57);
-			this.linksCount.Name = "linksCount";
-			this.linksCount.Size = new Size(72, 25);
-			this.linksCount.TabIndex = 2;
-			this.linksCount.Text = "Links:{0}";
-			this.linksCount.Theme = 1;
-			this.metroTextBox1.CustomButton.Image = null;
-			this.metroTextBox1.CustomButton.Location = new Point(116, 1);
-			this.metroTextBox1.CustomButton.Name = "";
-			this.metroTextBox1.CustomButton.Size = new Size(21, 21);
-			this.metroTextBox1.CustomButton.Style = 4;
-			this.metroTextBox1.CustomButton.TabIndex = 1;
-			this.metroTextBox1.CustomButton.Theme = 1;
-			this.metroTextBox1.CustomButton.UseSelectable = true;
-			this.metroTextBox1.CustomButton.Visible = false;
-			this.metroTextBox1.Lines = new string[]
-			{
-				"link or link,link,link"
-			};
-			this.metroTextBox1.Location = new Point(362, 176);
-			this.metroTextBox1.MaxLength = 32767;
-			this.metroTextBox1.Name = "metroTextBox1";
-			this.metroTextBox1.PasswordChar = '\0';
-			this.metroTextBox1.ScrollBars = ScrollBars.None;
-			this.metroTextBox1.SelectedText = "";
-			this.metroTextBox1.SelectionLength = 0;
-			this.metroTextBox1.SelectionStart = 0;
-			this.metroTextBox1.ShortcutsEnabled = true;
-			this.metroTextBox1.Size = new Size(138, 23);
-			this.metroTextBox1.TabIndex = 3;
-			this.metroTextBox1.Text = "link or link,link,link";
-			this.metroTextBox1.Theme = 1;
-			this.metroTextBox1.UseSelectable = true;
-			this.metroTextBox1.WaterMarkColor = Color.FromArgb(109, 109, 109);
-			this.metroTextBox1.WaterMarkFont = new Font("Segoe UI", 12f, FontStyle.Italic, GraphicsUnit.Pixel);
-			this.metroButton2.Location = new Point(362, 143);
-			this.metroButton2.Name = "metroButton2";
-			this.metroButton2.Size = new Size(219, 23);
-			this.metroButton2.TabIndex = 5;
-			this.metroButton2.Text = "Load logs";
-			this.metroButton2.Theme = 1;
-			this.metroButton2.UseSelectable = true;
-			this.metroButton2.Click += this.metroButton2_Click;
-			this.metroButton3.Location = new Point(362, 85);
-			this.metroButton3.Name = "metroButton3";
-			this.metroButton3.Size = new Size(219, 23);
-			this.metroButton3.TabIndex = 6;
-			this.metroButton3.Text = "Start";
-			this.metroButton3.Theme = 1;
-			this.metroButton3.UseSelectable = true;
-			this.metroButton3.Click += this.metroButton3_Click;
-			this.spath.AutoSize = true;
-			this.spath.FontSize = 2;
-			this.spath.ForeColor = Color.Lime;
-			this.spath.Location = new Point(21, 260);
-			this.spath.Name = "spath";
-			this.spath.Size = new Size(106, 25);
-			this.spath.TabIndex = 7;
-			this.spath.Text = "Path:{empty}";
-			this.spath.Theme = 1;
-			this.spath.Click += this.spath_Click;
-			this.metroButton4.Location = new Point(362, 114);
-			this.metroButton4.Name = "metroButton4";
-			this.metroButton4.Size = new Size(219, 23);
-			this.metroButton4.TabIndex = 8;
-			this.metroButton4.Text = "Clear";
-			this.metroButton4.Theme = 1;
-			this.metroButton4.UseSelectable = true;
-			this.metroButton4.Click += this.metroButton4_Click;
-			this.metroCheckBox1.AutoSize = true;
-			this.metroCheckBox1.Checked = true;
-			this.metroCheckBox1.CheckState = CheckState.Checked;
-			this.metroCheckBox1.Location = new Point(367, 230);
-			this.metroCheckBox1.Name = "metroCheckBox1";
-			this.metroCheckBox1.Size = new Size(75, 15);
-			this.metroCheckBox1.TabIndex = 9;
-			this.metroCheckBox1.Text = "Check CC";
-			this.metroCheckBox1.UseSelectable = true;
-			this.metroToggle1.AutoSize = true;
-			this.metroToggle1.Location = new Point(457, 209);
-			this.metroToggle1.Name = "metroToggle1";
-			this.metroToggle1.Size = new Size(80, 17);
-			this.metroToggle1.TabIndex = 10;
-			this.metroToggle1.Text = "Off";
-			this.metroToggle1.UseSelectable = true;
-			this.metroLabel1.AutoSize = true;
-			this.metroLabel1.FontSize = 2;
-			this.metroLabel1.Location = new Point(362, 202);
-			this.metroLabel1.Name = "metroLabel1";
-			this.metroLabel1.Size = new Size(89, 25);
-			this.metroLabel1.TabIndex = 11;
-			this.metroLabel1.Text = "Check .zip";
-			this.metroCheckBox2.AutoSize = true;
-			this.metroCheckBox2.Location = new Point(448, 230);
-			this.metroCheckBox2.Name = "metroCheckBox2";
-			this.metroCheckBox2.Size = new Size(111, 15);
-			this.metroCheckBox2.TabIndex = 12;
-			this.metroCheckBox2.Text = "Check Timezone";
-			this.metroCheckBox2.UseSelectable = true;
-			base.AutoScaleDimensions = new SizeF(6f, 13f);
-			base.AutoScaleMode = AutoScaleMode.Font;
-			base.ClientSize = new Size(594, 292);
-			base.Controls.Add(this.metroCheckBox2);
-			base.Controls.Add(this.metroLabel1);
-			base.Controls.Add(this.metroToggle1);
-			base.Controls.Add(this.metroCheckBox1);
-			base.Controls.Add(this.metroButton4);
-			base.Controls.Add(this.spath);
-			base.Controls.Add(this.metroButton3);
-			base.Controls.Add(this.metroButton2);
-			base.Controls.Add(this.metroTextBox1);
-			base.Controls.Add(this.linksCount);
-			base.Controls.Add(this.metroButton1);
-			base.Controls.Add(this.metroListView1);
-			base.Name = "Sorter";
-			base.Resizable = false;
-			this.Text = "Sorter by NLOC Production";
-			base.Theme = 0;
-			base.FormClosed += this.Sorter_FormClosed;
-			base.Load += this.Sorter_Load;
-			base.ResumeLayout(false);
-			base.PerformLayout();
-		}
-
 		// Token: 0x0400000B RID: 11
 		private string path;
 
@@ -433,44 +265,5 @@ namespace LogSorter
 
 		// Token: 0x0400000D RID: 13
 		private int i;
-
-		// Token: 0x0400000E RID: 14
-		private IContainer components = null;
-
-		// Token: 0x0400000F RID: 15
-		private MetroListView metroListView1;
-
-		// Token: 0x04000010 RID: 16
-		private MetroButton metroButton1;
-
-		// Token: 0x04000011 RID: 17
-		private MetroLabel linksCount;
-
-		// Token: 0x04000012 RID: 18
-		private MetroTextBox metroTextBox1;
-
-		// Token: 0x04000013 RID: 19
-		private MetroButton metroButton2;
-
-		// Token: 0x04000014 RID: 20
-		private MetroButton metroButton3;
-
-		// Token: 0x04000015 RID: 21
-		private MetroLabel spath;
-
-		// Token: 0x04000016 RID: 22
-		private MetroButton metroButton4;
-
-		// Token: 0x04000017 RID: 23
-		private MetroCheckBox metroCheckBox1;
-
-		// Token: 0x04000018 RID: 24
-		private MetroToggle metroToggle1;
-
-		// Token: 0x04000019 RID: 25
-		private MetroLabel metroLabel1;
-
-		// Token: 0x0400001A RID: 26
-		private MetroCheckBox metroCheckBox2;
 	}
 }
