@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DBEBB5F-4D70-4302-AA0D-CF9D0BB5E568}</ProjectGuid>
+    <ProjectGuid>{15FCA4D0-0797-4ECA-AEBC-9F74FD287931}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>LogSorter</RootNamespace>
     <AssemblyName>LogSorter</AssemblyName>
@@ -33,29 +33,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework">
-      <HintPath>E:\2.C#\Library\MetroFramework.dll</HintPath>
+    <Reference Include="Authed">
+      <HintPath>..\..\..\Documents\Visual Studio 2017\Libs\Authed.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>E:\2.C#\Library\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\Documents\Visual Studio 2017\Libs\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="xNet">
-      <HintPath>E:\2.C#\Library\xNet.dll</HintPath>
+      <HintPath>..\..\..\Documents\Visual Studio 2017\Libs\xNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="First.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="First.Designer.cs">
-      <DependentUpon>First.cs</DependentUpon>
     </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
@@ -68,9 +66,6 @@
     </Compile>
     <Compile Include="Sorter.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sorter.Designer.cs">
-      <DependentUpon>Sorter.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

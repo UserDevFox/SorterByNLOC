@@ -8,19 +8,19 @@ using System.Runtime.CompilerServices;
 
 namespace LogSorter.Properties
 {
-	// Token: 0x02000006 RID: 6
+	// Token: 0x02000007 RID: 7
 	[GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
 	[DebuggerNonUserCode]
 	[CompilerGenerated]
 	internal class Resources
 	{
-		// Token: 0x06000024 RID: 36 RVA: 0x00003A8C File Offset: 0x00001C8C
+		// Token: 0x0600002E RID: 46 RVA: 0x00003D0E File Offset: 0x00001F0E
 		internal Resources()
 		{
 		}
 
-		// Token: 0x17000006 RID: 6
-		// (get) Token: 0x06000025 RID: 37 RVA: 0x00003A98 File Offset: 0x00001C98
+		// Token: 0x1700000A RID: 10
+		// (get) Token: 0x0600002F RID: 47 RVA: 0x00003D18 File Offset: 0x00001F18
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		internal static ResourceManager ResourceManager
 		{
@@ -36,9 +36,9 @@ namespace LogSorter.Properties
 			}
 		}
 
-		// Token: 0x17000007 RID: 7
-		// (get) Token: 0x06000026 RID: 38 RVA: 0x00003AE0 File Offset: 0x00001CE0
-		// (set) Token: 0x06000027 RID: 39 RVA: 0x00003AF7 File Offset: 0x00001CF7
+		// Token: 0x1700000B RID: 11
+		// (get) Token: 0x06000030 RID: 48 RVA: 0x00003D60 File Offset: 0x00001F60
+		// (set) Token: 0x06000031 RID: 49 RVA: 0x00003D77 File Offset: 0x00001F77
 		[EditorBrowsable(EditorBrowsableState.Advanced)]
 		internal static CultureInfo Culture
 		{
@@ -52,10 +52,10 @@ namespace LogSorter.Properties
 			}
 		}
 
-		// Token: 0x0400001B RID: 27
+		// Token: 0x0400001E RID: 30
 		private static ResourceManager resourceMan;
 
-		// Token: 0x0400001C RID: 28
+		// Token: 0x0400001F RID: 31
 		private static CultureInfo resourceCulture;
 	}
 }
